@@ -15,7 +15,6 @@ public class Tweeto implements Comparable<Tweeto>{
         setTweet(Tweet);
     }
     
-
     public String getID() {
         return ID;
     }
@@ -42,17 +41,17 @@ public class Tweeto implements Comparable<Tweeto>{
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return String.format("%s: %s",getID(),getTweet());
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+        return (Integer.parseInt(getID()));
     }
 
     @Override
     public int compareTo(Tweeto o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (getID().compareTo(o.getID()));
     }
     
     
