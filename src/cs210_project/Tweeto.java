@@ -41,7 +41,7 @@ public class Tweeto implements Comparable<Tweeto>{
 
     @Override
     public String toString() {
-        return String.format("%s: %s",getID(),getTweet());
+        return String.format("%s:\n%s",getID(),getTweet());
     }
 
     @Override
