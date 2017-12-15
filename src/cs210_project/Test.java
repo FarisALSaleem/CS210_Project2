@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Test {
 
     public static boolean isIllegalValue(int d, String u) { // checks if d or u has an IllegalValue
-                                                            //returns true if they do
+        //returns true if they do
         if (d < 1 || d > 3) {
             System.out.println("d is a Illegal value");
             return true;
@@ -50,15 +50,23 @@ public class Test {
         String k = input.next();
         input = new Scanner(infile);
 
-        if (!isIllegalValue(d, u)) {
+        if (isIllegalValue(d, u)) {
             System.out.println("stop");
         } else if (d == 1) {
             ArrayList list = new ArrayList();
-            String temp = "";
+            int temp = 0;
+            String tempString = "";
+            String id = "";
+            String tweet = "";
             while(input.hasNext()){
-                temp = input.next();
-                list.addfirst(new Tweeto(, ));
+                temp = input.nextInt();
+                String Id= input.next();
+                String x= input.nextLine();
+
+                list.addfirst(new Tweeto(Id,x.substring(x.length()-28) ));
             }
+            printOut(list.search(u, k), 0);
+
         } else if (d == 2) {
             System.out.println("implemented yet");
         } else {
