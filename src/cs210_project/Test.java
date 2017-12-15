@@ -58,10 +58,11 @@ public class Test {
             String id = "";
             String tweet = "";
             while(input.hasNext()){
+                tempString = input.next();
                 id = input.next();
-                id = input.next();
-                tempString = input.nextLine();
-                list.addfirst(new Tweeto(id,tweet));
+                tweet = input.nextLine();
+                list.addfirst(new Tweeto(id,tweet.substring(0, tweet.length()-29)));
+                System.out.println(list.getHead().toString());
             }
             printOut(list.search(u, k), 0);
 
