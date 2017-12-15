@@ -54,7 +54,9 @@ public class Test {
             System.out.println("stop");
         } else if (d == 1) {
             ArrayList list = new ArrayList();
+            String temp = "";
             while(input.hasNext()){
+                temp = input.next();
                 list.addfirst(new Tweeto(, ));
             }
         } else if (d == 2) {
