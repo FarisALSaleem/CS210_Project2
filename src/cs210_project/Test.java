@@ -55,10 +55,7 @@ public class Test {
         } else if (d == 1) {
             ArrayList list = new ArrayList();
             while(input.hasNext()){
-            String temp = input.next();
-            String id = input.next();
-            StringBuilder Tweet = new StringBuilder(280);
-            Tweet.append(input.nextLine());          
+                list.addfirst(new Tweeto(, ));
             }
         } else if (d == 2) {
             System.out.println("implemented yet");
