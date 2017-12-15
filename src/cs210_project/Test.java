@@ -57,12 +57,23 @@ public class Test {
             String tempString = "";
             String id = "";
             String tweet = "";
-            while(input.hasNext()){
+            while (input.hasNext()) {
                 tempString = input.next();
                 id = input.next();
-                tweet = input.nextLine();
-                list.addfirst(new Tweeto(id,tweet.substring(0, tweet.length()-29)));
+
+                String[] tempString2 = input.nextLine().split(" ");
+                for (int i = 0; i < tempString2.length; i++) {
+                    if ("Wed".equals(tempString2[i])) {
+                        if ("Dec".equals(tempString2[i + 1])) {
+                            i = i + 5;
+                        }
+                    }
+                    else tweet = tweet + " " + tempString2[i];
+                }
+
+                list.addfirst(new Tweeto(id, tweet));
                 System.out.println(list.getHead().toString());
+                tweet = "";
             }
             printOut(list.search(u, k), 0);
 
