@@ -22,7 +22,7 @@ public class ArrayList {
     }
 
     public void addfirst(Tweeto N) {
-        if (getSize() > 0) {
+        if (getSize()== 0) {
             Head = N;
         } else {
             N.setNext(Head);
@@ -39,7 +39,7 @@ public class ArrayList {
         Tweeto temp = Head;
 
         while (temp != null) {
-            if (temp.getID().charAt(1) == u.charAt(0)) {
+            if (temp.getID().charAt(0) == u.charAt(0)) {
                 if (temp.getTweet().contains(k)) {
                     c++;
                 }
