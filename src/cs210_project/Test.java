@@ -54,16 +54,14 @@ public class Test {
             System.out.println("stop");
         } else if (d == 1) {
             ArrayList list = new ArrayList();
-            int temp = 0;
             String tempString = "";
             String id = "";
             String tweet = "";
             while(input.hasNext()){
-                temp = input.nextInt();
-                String Id= input.next();
-                String x= input.nextLine();
-
-                list.addfirst(new Tweeto(Id,x.substring(x.length()-28) ));
+                id = input.next();
+                id = input.next();
+                tempString = input.nextLine();
+                list.addfirst(new Tweeto(id,tweet));
             }
             printOut(list.search(u, k), 0);
 
