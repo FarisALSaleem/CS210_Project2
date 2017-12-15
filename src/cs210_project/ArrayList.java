@@ -22,13 +22,11 @@ public class ArrayList {
     }
 
     public void addfirst(Tweeto N) {
-        if (this.Head == null) {
+        if (getSize() > 0) {
             Head = N;
-
         } else {
-            N.getNext().setNext(Head);
+            N.setNext(Head);
             Head = N;
-
         }
         Size++;
     }
