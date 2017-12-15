@@ -39,7 +39,7 @@ public class ArrayList {
         Tweeto temp = Head;
 
         while (temp != null) {
-            if (temp.getID().charAt(0) == u.charAt(0)) {
+            if (temp.getID().charAt(1)== u.charAt(0) || temp.getID().charAt(1) == u.charAt(0)-32){
                 if (temp.getTweet().contains(k)) {
                     c++;
                 }
