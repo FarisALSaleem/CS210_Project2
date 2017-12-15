@@ -1,7 +1,9 @@
 package cs210_project;
+
 public class ArrayList {
+
     private Tweeto Head;
-    private int Size=0;
+    private int Size = 0;
 
     public Tweeto getHead() {
         return Head;
@@ -19,32 +21,35 @@ public class ArrayList {
         this.Size = Size;
     }
 
-    public void addfirst(Tweeto N){
-        if (this.Head==null){
-          Head=N;
-          
+    public void addfirst(Tweeto N) {
+        if (this.Head == null) {
+            Head = N;
+
+        } else {
+            N.getNext().setNext(Head);
+            Head = N;
+
         }
-          else{
-         N.getNext().setNext(Head);
-              Head=N;
-              
-                  }
         Size++;
-     }
-     public Tweeto search(String ID){
-        if (Head== null)
-            return null;
-        Tweeto temp= Head;
-        
-        while(temp!=null){
-            if (temp.getID()== ID){
-                return temp;
-            }
-            temp=temp.getNext();
-                }
-        return temp;
-        
-        
     }
-    
+
+    public int search(String u, String k) {
+        int c = 0;
+        if (Head == null) {
+            return c;
+        }
+        Tweeto temp = Head;
+
+        while (temp != null) {
+            if (temp.getID().charAt(1) == u.charAt(0)) {
+                if (temp.getTweet().contains(k)) {
+                    c++;
+                }
+            }
+            temp = temp.getNext();
+        }
+        return c;
+
+    }
+
 }
