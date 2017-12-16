@@ -58,24 +58,12 @@ public class Test {
             String id = "";
             String tweet = "";
             while (input.hasNext()) {
-                tempString = input.next();
-                id = input.next();
-
-                String[] tempString2 = input.nextLine().split(" ");
-                for (int i = 0; i < tempString2.length; i++) {
-                    if ("Wed".equals(tempString2[i])) {
-                        if ("Dec".equals(tempString2[i + 1])) {
-                            i = i + 5;
-                        }
-                    }
-                    else tweet = tweet + " " + tempString2[i];
-                }
-
-                list.addfirst(new Tweeto(id, tweet));
-                System.out.println(list.getHead().toString());
-                tweet = "";
-            }
-            printOut(list.search(u, k), 0);
+                String[] tempString2 = input.nextLine().split("Wed Dec 14"); 
+                tempString = tempString2[0].substring(tempString2[0].indexOf(" ")+1);
+                System.out.println(tempString);              
+              }
+            
+            //printOut(list.search(u, k), 0);
 
         } else if (d == 2) {
             System.out.println("implemented yet");
