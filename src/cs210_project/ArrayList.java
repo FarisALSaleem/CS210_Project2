@@ -5,6 +5,9 @@ public class ArrayList {
     private Tweeto Head;
     private int Size = 0;
 
+    public ArrayList() {
+    }
+
     public Tweeto getHead() {
         return Head;
     }
