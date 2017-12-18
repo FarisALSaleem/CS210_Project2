@@ -64,7 +64,7 @@ public class Tweeto implements Comparable<Tweeto>{
 
     @Override
     public int hashCode() {
-        return ((int)(getID().charAt(1)));
+        return ((int)(getID().toLowerCase().charAt(1)));
     }
 
     @Override
