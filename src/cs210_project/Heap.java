@@ -28,7 +28,7 @@ public class Heap {
         }
         
     }
-
+    
     public int getSize() {
         return size;
     }
