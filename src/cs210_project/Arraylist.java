@@ -52,5 +52,14 @@ public class Arraylist {
         return c;
 
     }
+    public void print(){
+     Tweeto temp = Head;
+        while (temp != null) {
+            System.out.println(temp.toString());
+            temp = temp.getNext();
+            
+        }
+    }
+    
 
 }
