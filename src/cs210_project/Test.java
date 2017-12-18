@@ -1,10 +1,12 @@
 package cs210_project;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test {
@@ -42,7 +44,6 @@ public class Test {
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-
         Scanner input = new Scanner(System.in);
         String textfile = input.next();
         File infile = new File(textfile);
@@ -51,12 +52,12 @@ public class Test {
         int d = input.nextInt();
         String u = input.next();
         String k = input.next();
-        double startTime = System.nanoTime();
-        
+        double startTime;
+
         if (isIllegalValue(d, u)) {
-           System.out.println("stop");
+            System.out.println("stop");
         }
-        
+
         String document = "";
         BufferedReader br = null;
         br = new BufferedReader(new FileReader(infile));
@@ -64,43 +65,46 @@ public class Test {
         while ((line = br.readLine()) != null) {
             document += line + "\n";
         }
-        ArrayList<String> list = new ArrayList<>();
-        ArrayList<String> tweet = new ArrayList<>();
-        ArrayList<String> id = new ArrayList<>();
-        while (!document.isEmpty()) {
-            list.add(document.substring(document.indexOf(" ") + 1, document.indexOf("Wed Dec 14")));
-            document = document.substring(document.indexOf("Wed Dec 14") + 30);
-        }
 
-        for (int i = 0; i < list.size(); i++) { 
-            id.add(list.get(i).substring(0,list.get(i).indexOf(" ")));
-            tweet.add(list.get(i).substring(list.get(i).indexOf(" ") + 1));
+        ArrayList<String> tweet = new ArrayList<String>(Arrays.asList(document.split("BDT")));
+        ArrayList<String> id = new ArrayList<>();
+        
+        tweet.remove(tweet.size() - 1);     
+        //Last element is not a tweet
+        
+        //Formatting the contents of the array
+        for (int i = 0; i < tweet.size(); i++) {
+            String extractedTweet = tweet.get(i).substring(tweet.get(i).indexOf("@"), tweet.get(i).indexOf(" Wed Dec 14"));
+            id.add(extractedTweet.substring(0, extractedTweet.indexOf(" ")+1));
+            tweet.set(i, extractedTweet.substring(extractedTweet.indexOf(" ")+1));
             if (tweet.get(i).contains("@"))
-                tweet.set(i , tweet.get(i).substring(tweet.get(i).indexOf(" ", tweet.get(i).indexOf("@"))));
+                tweet.set(i , tweet.get(i).substring(tweet.get(i).indexOf(" ",tweet.get(i).indexOf("@"))+1));
         }
 
         if (d == 1) {
+            startTime = System.nanoTime();
             Arraylist a = new Arraylist();
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = 0; i < tweet.size(); i++) {
                 a.addfirst(new Tweeto(id.get(i), tweet.get(i)));
             }
-            
             numberOfTweets = a.search(u, k);
             double endTime = System.nanoTime();
-            printOut(numberOfTweets, (endTime-startTime)/1e+9);          
+            printOut(numberOfTweets, (endTime - startTime) / 1e+9);
         } else if (d == 2) {
+
             TweetoHT h = new TweetoHT();
-            for (int i = 0; i < list.size(); i++) {
-                h.add(new Tweeto(id.get(i), tweet.get(i)));
-            }
-            
+            startTime = System.nanoTime();
+            for (int i = 0; i < tweet.size(); i++) 
+                h.add(new Tweeto(id.get(i), tweet.get(i)));            
             numberOfTweets = h.search(u, k);
             double endTime = System.nanoTime();
-            printOut(numberOfTweets, (endTime-startTime)/1e+9);
+            printOut(numberOfTweets, (endTime - startTime) / 1e+9);
+
         } else {
+            startTime = System.nanoTime();
             System.out.println("implemented yet");
             double endTime = System.nanoTime();
-            printOut(numberOfTweets, (endTime-startTime)/1e+9);
+            printOut(numberOfTweets, (endTime - startTime) / 1e+9);
         }
 
     }
