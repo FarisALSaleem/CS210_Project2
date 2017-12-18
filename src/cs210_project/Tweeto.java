@@ -31,8 +31,6 @@ public class Tweeto implements Comparable<Tweeto>{
         setNext2(next2);
     }
     
-    
-    
     public String getID() {
         return ID;
     }
