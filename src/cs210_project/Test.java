@@ -54,7 +54,7 @@ public class Test {
         double startTime = System.nanoTime();
         
         if (isIllegalValue(d, u)) {
-            System.out.println("stop");
+           System.out.println("stop");
         }
         
         String document = "";
@@ -84,13 +84,17 @@ public class Test {
             for (int i = 0; i < list.size(); i++) {
                 a.addfirst(new Tweeto(id.get(i), tweet.get(i)));
             }
+            
             numberOfTweets = a.search(u, k);
             double endTime = System.nanoTime();
-            printOut(numberOfTweets, (endTime-startTime)/1e+9);
-            
-            System.out.println(a.search(u,k));
+            printOut(numberOfTweets, (endTime-startTime)/1e+9);          
         } else if (d == 2) {
-            System.out.println("implemented yet");
+            TweetoHT h = new TweetoHT();
+            for (int i = 0; i < list.size(); i++) {
+                h.add(new Tweeto(id.get(i), tweet.get(i)));
+            }
+            
+            numberOfTweets = h.search(u, k);
             double endTime = System.nanoTime();
             printOut(numberOfTweets, (endTime-startTime)/1e+9);
         } else {
