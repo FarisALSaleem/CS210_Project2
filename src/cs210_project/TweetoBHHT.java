@@ -1,26 +1,34 @@
 package cs210_project;
 
 public class TweetoBHHT {
-    
+
     private Heap[] HT;
     private int size = 37;
 
     public TweetoBHHT() {
-        HT =new Heap[getSize()];    
+        HT = new Heap[getSize()];
     }
-    
+
     public void add(Tweeto t) {
         int i = (t.hashCode() % 37);
         HT[i].insert(new Tweeto(t.getID(), t.getTweet()));
     }
-    
+
     public int search(String u, String k) {
-        Tweeto ucode = new Tweeto("@"+u, " ");
+        Tweeto ucode = new Tweeto("@" + u, " ");
+        int c = 0;
         int i = (ucode.hashCode() % 37);
-        if (HT[i] == null) 
+        if (HT[i] == null) {
             return 0;
-        else
-            return HT[i].search;}
+        } else 
+            while (!HT[i].isEmpty()) {
+                Tweeto t = HT[i].remove();
+                if (t.getID().toLowerCase().charAt(1) == u.toLowerCase().charAt(0))
+                    if (t.getTweet().contains(k)) 
+                        c++;
+            }
+            return c;
+         }
 
     public Heap[] getHT() {
         return HT;
@@ -37,7 +45,5 @@ public class TweetoBHHT {
     public void setSize(int size) {
         this.size = size;
     }
-    
-    
-   
+
 }
