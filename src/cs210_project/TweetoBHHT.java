@@ -6,7 +6,7 @@ public class TweetoBHHT {
     //current number of Tweeto objects
     private int size;
    
-    public TweetoBHHT(int capacity){
+    public TweetoBHHT(){
         HT = Tweeto[1000001];
     }
 //        public TweetoBHHT(Tweeto[] arr){
