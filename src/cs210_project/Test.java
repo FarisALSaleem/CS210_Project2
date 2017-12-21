@@ -1,10 +1,11 @@
 package cs210_project;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -58,13 +59,7 @@ public class Test {
             System.out.println("stop");
         }
 
-        String document = "";
-        BufferedReader br = null;
-        br = new BufferedReader(new FileReader(infile));
-        String line = "";
-        while ((line = br.readLine()) != null) {
-            document += line + "\n";
-        }
+        String document = new String(Files.readAllBytes(Paths.get(infile.getAbsolutePath())),StandardCharsets.UTF_8);
 
         ArrayList<String> tweet = new ArrayList<String>(Arrays.asList(document.split("BDT")));
         ArrayList<String> id = new ArrayList<>();
@@ -82,27 +77,29 @@ public class Test {
         }
 
         if (d == 1) {
-            startTime = System.nanoTime();
             Arraylist a = new Arraylist();
             for (int i = 0; i < tweet.size(); i++) {
                 a.addfirst(new Tweeto(id.get(i), tweet.get(i)));
             }
+            
+            startTime = System.nanoTime();
             numberOfTweets = a.search(u, k);
             double endTime = System.nanoTime();
             printOut(numberOfTweets, (endTime - startTime) / 1e+9);
         } else if (d == 2) {
 
             TweetoHT h = new TweetoHT();
-            startTime = System.nanoTime();
             for (int i = 0; i < tweet.size(); i++) 
-                h.add(new Tweeto(id.get(i), tweet.get(i)));            
+                h.add(new Tweeto(id.get(i), tweet.get(i)));
+
+            startTime = System.nanoTime();
             numberOfTweets = h.search(u, k);
             double endTime = System.nanoTime();
             printOut(numberOfTweets, (endTime - startTime) / 1e+9);
 
         } else {
-            startTime = System.nanoTime();
             System.out.println("implemented yet");
+            startTime = System.nanoTime();
             double endTime = System.nanoTime();
             printOut(numberOfTweets, (endTime - startTime) / 1e+9);
         }
