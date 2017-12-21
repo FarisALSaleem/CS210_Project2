@@ -2,8 +2,7 @@ package cs210_project;
 public class Tweeto implements Comparable<Tweeto>{
     private String ID;
     private String Tweet;
-    private Tweeto next; //left
-    private Tweeto next2; //right
+    private Tweeto next; 
 
     public Tweeto(String ID, String Tweet, Tweeto next) {
         setID(ID);
@@ -14,21 +13,6 @@ public class Tweeto implements Comparable<Tweeto>{
     public Tweeto(String ID, String Tweet) {
         setID(ID);
         setTweet(Tweet);
-    }
-
-    public Tweeto getNext2() {
-        return next2;
-    }
-
-    public void setNext2(Tweeto next2) {
-        this.next2 = next2;
-    }
-
-    public Tweeto(String ID, String Tweet, Tweeto next, Tweeto next2) {
-        setID(ID);
-        setTweet(Tweet);
-        setNext(next);
-        setNext2(next2);
     }
     
     public String getID() {
