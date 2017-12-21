@@ -98,8 +98,12 @@ public class Test {
             printOut(numberOfTweets, (endTime - startTime) / 1e+9);
 
         } else {
-            System.out.println("implemented yet");
+            TweetoBHHT t = new TweetoBHHT();
+            for (int i = 0; i < tweet.size(); i++) 
+                t.add(new Tweeto(id.get(i), tweet.get(i)));
+            
             startTime = System.nanoTime();
+            numberOfTweets = t.search(u, k);
             double endTime = System.nanoTime();
             printOut(numberOfTweets, (endTime - startTime) / 1e+9);
         }
