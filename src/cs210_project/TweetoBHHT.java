@@ -11,6 +11,8 @@ public class TweetoBHHT {
 
     public void add(Tweeto t) {
         int i = (t.hashCode() % 37);
+        if (HT[i]==null)
+            HT[i] = new Heap();
         HT[i].insert(new Tweeto(t.getID(), t.getTweet()));
     }
 
