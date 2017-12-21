@@ -7,7 +7,7 @@ public class TweetoBHHT {
     private int size;
    
     public TweetoBHHT(int capacity){
-        HT = (Tweeto[]) new Comparable[capacity+1]; 
+        HT = Tweeto[1000001];
     }
 //        public TweetoBHHT(Tweeto[] arr){
 //        HT = (Tweeto[]) new Arraylist(); 
@@ -45,7 +45,7 @@ public class TweetoBHHT {
         
         // if k has parent and is bigger than child, swap
         while (k > 1 && 
-                (HT[k/2].compareTo(HT[k]) > 0)) {
+                (HT[k].compareTo(HT[k/2]) > 0)) {
             swap(k, k/2);
             // K becomes the parent
             k = k/2;
@@ -55,22 +55,22 @@ public class TweetoBHHT {
         
         while (2 * k <= size){
             //start with left child
-            int smallerChild = k * 2;
+            int biggerChild = k * 2;
             
              //compare left child with right child 
             if ( 2 * k + 1 >= size && 
-                   HT[k*2].compareTo(HT[2*k+1]) > 0){
-               smallerChild = 2 * k + 1;
+                   HT[k*2+1].compareTo(HT[2*k]) > 0){
+               biggerChild = 2 * k + 1;
             }
              //compare parent with smaller child
-            if (HT[k].compareTo(HT[smallerChild]) > 0){
-                swap(k, smallerChild);
+            if (HT[biggerChild].compareTo(HT[k]) > 0){
+                swap(k, biggerChild);
                
             }else{
                 //we're done, get out
                 break;
             }
-            k = smallerChild;     
+            k = biggerChild;     
         }
     }
         
