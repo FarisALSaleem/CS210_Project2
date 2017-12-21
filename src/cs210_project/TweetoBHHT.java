@@ -1,4 +1,5 @@
 package cs210_project;
+
 public class TweetoBHHT {
     
     //An array holding the hash table
@@ -7,7 +8,7 @@ public class TweetoBHHT {
     private int size;
    
     public TweetoBHHT(){
-        HT = Tweeto[1000001];
+        HT = new Tweeto[1000001];
         size = 0;
     }
 //        public TweetoBHHT(Tweeto[] arr){
