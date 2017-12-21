@@ -30,7 +30,7 @@ public class TweetoHT {
         else {
             while (temp != null) {
                 if (temp.getID().toLowerCase().charAt(1) == u.toLowerCase().charAt(0)) {
-                    if (temp.getTweet().contains(k)) 
+                    if (temp.getTweet().toLowerCase().contains(k.toLowerCase())) 
                         c++;
                 }temp = temp.getNext();
             }
