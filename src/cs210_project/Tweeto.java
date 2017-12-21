@@ -46,6 +46,12 @@ public class Tweeto implements Comparable<Tweeto>{
 
     @Override
     public int hashCode() {
+        if ((getID().toLowerCase().charAt(1) == 'z'))
+            return 96;
+        else if ((getID().toLowerCase().charAt(1) == 'x'))
+            return 94;
+        else if ((getID().toLowerCase().charAt(1) == 'y'))
+            return 95;
         return ((int)(getID().toLowerCase().charAt(1)));
     }
 
