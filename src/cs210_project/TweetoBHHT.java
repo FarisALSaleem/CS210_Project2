@@ -8,6 +8,7 @@ public class TweetoBHHT {
    
     public TweetoBHHT(){
         HT = Tweeto[1000001];
+        size = 0;
     }
 //        public TweetoBHHT(Tweeto[] arr){
 //        HT = (Tweeto[]) new Arraylist(); 
