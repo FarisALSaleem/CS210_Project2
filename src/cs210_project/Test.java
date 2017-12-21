@@ -56,7 +56,7 @@ public class Test {
         double startTime;
 
         if (isIllegalValue(d, u)) {
-            System.out.println("stop");
+          throw new IllegalArgumentException("");
         }
 
         String document = new String(Files.readAllBytes(Paths.get(infile.getAbsolutePath())),StandardCharsets.UTF_8);
