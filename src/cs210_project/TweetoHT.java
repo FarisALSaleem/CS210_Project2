@@ -3,7 +3,7 @@ package cs210_project;
 public class TweetoHT {
 
     private Tweeto[] HT;
-    private final int size = 37;
+    private final int size = 36;
 
     public TweetoHT() {
         HT = new Tweeto[getSize()];
@@ -11,7 +11,7 @@ public class TweetoHT {
     }
 
     public void add(Tweeto t) {
-        int i = (t.hashCode() % 37);
+        int i = (t.hashCode() % 36);
         if (HT[i] == null) {
             HT[i] = new Tweeto(t.getID(), t.getTweet());
         } else {
@@ -22,7 +22,7 @@ public class TweetoHT {
 
     public int search(String u, String k) {
         int ucode = (int) u.charAt(0);
-        int i = (ucode % 37);
+        int i = (ucode % 36);
         Tweeto temp = HT[i];
         int c = 0;
         if (HT[i] == null) 
