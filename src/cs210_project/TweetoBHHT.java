@@ -26,8 +26,8 @@ public class TweetoBHHT {
             while (!HT[i].isEmpty()) {
                 Tweeto t = HT[i].remove();
                 if (t.getID().toLowerCase().charAt(1) == u.toLowerCase().charAt(0))
-                    if (t.getTweet().contains(k)) 
-                        c++;
+                    if (t.getTweet().toLowerCase().contains(k.toLowerCase())) 
+                        c++; 
             }
             return c;
          }
