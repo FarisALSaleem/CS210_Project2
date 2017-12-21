@@ -58,7 +58,7 @@ public class TweetoBHHT {
             int biggerChild = k * 2;
             
              //compare left child with right child 
-            if ( 2 * k + 1 >= size && 
+            if ( 2 * k + 1 <= size && 
                    HT[k*2+1].compareTo(HT[2*k]) > 0){
                biggerChild = 2 * k + 1;
             }
