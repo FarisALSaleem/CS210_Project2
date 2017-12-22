@@ -53,6 +53,7 @@ public class Test {
         int d = input.nextInt();
         String u = input.next();
         String k = input.next();
+        input.close();
         double startTime;
 
         if (isIllegalValue(d, u)) {
