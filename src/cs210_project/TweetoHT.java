@@ -11,7 +11,7 @@ public class TweetoHT {
     }
 
     public void add(Tweeto t) {
-        int i = (t.hashCode() % 37);
+        int i = ((t.hashCode()*7+3) % 37);
         if (HT[i] == null) {
             HT[i] = new Tweeto(t.getID(), t.getTweet());
         } else {
@@ -22,7 +22,7 @@ public class TweetoHT {
 
     public int search(String u, String k) {
         Tweeto ucode = new Tweeto("@"+u, " ");
-        int i = (ucode.hashCode() % 37);
+        int i = ((ucode.hashCode()*7+3) % 37);
         Tweeto temp = HT[i];
         int c = 0;
         if (HT[i] == null) 
